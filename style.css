@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap");
+
+/* ================
+  global 
+  ================= */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* * {
+  border: 1px solid red !important;
+} */
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  /* min-height: 100vh; */
+  font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  max-width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================
+  typography 
+  ================= */
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.375rem; /*22px*/
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ================
+  layout 
+  ================= */
+/*   logo   */
+.logo {
+  grid-column: 1/4;
+  grid-row: 1/3;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 25px 0;
+  line-height: 1;
+}
+
+/*   discover   */
+.discover {
+  grid-column: 4/6;
+  grid-row: 1/3;
+  background-color: #facd2c;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.875rem; /*14px*/
+  line-height: 1.5;
+}
+
+.discover-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  line-height: 0;
+}
+
+.discover-link p {
+  font-size: 1rem;
+}
+
+.discover-link a {
+  color: #fff;
+  transition: transform 400ms ease;
+  transform: translateX(-5px);
+}
+
+.discover-link a:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+.discover-link a:focus {
+  opacity: 0.7;
+}
+
+/*   research   */
+.research {
+  grid-column: 9/12;
+  grid-row: 1/2;
+  background-color: pink;
+}
+
+/*   burger menu   */
+.burger {
+  grid-column: 12/13;
+  grid-row: 1/2;
+  cursor: pointer;
+}
+
+.burger-line {
+  width: 35px;
+  height: 5px;
+  background: #000;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transition: all 300ms ease-out;
+}
+
+.burger-line::before,
+.burger-line::after {
+  content: "";
+  width: 35px;
+  height: 5px;
+  background: #000;
+  position: absolute;
+  transition: all 300ms ease-out;
+}
+
+.burger-line::before {
+  top: -10px;
+}
+
+.burger-line::after {
+  top: 10px;
+}
+
+.burger:hover .burger-line::before {
+  top: 10px;
+}
+
+/*   work   */
+.work {
+  grid-column: 1/4;
+  grid-row: 3/6;
+  position: relative;
+  cursor: pointer;
+}
+
+.work-bg {
+  background-image: url("img/work.svg");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: filter 250ms ease;
+}
+
+.work:hover .overlay,
+.bio:hover .overlay,
+.events:hover .overlay {
+  height: 40%;
+  opacity: 1;
+}
+
+.work:hover .work-bg,
+.bio:hover .bio-bg,
+.events:hover .events-bg {
+  filter: sepia(1);
+}
+
+/* overlay for 3 image bg */
+.overlay {
+  width: 100%;
+  height: 0;
+  /* background: rgb(250, 205, 44, 0.7); */
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 250ms ease;
+}
+
+/*   bio   */
+.bio {
+  grid-column: 4/9;
+  grid-row: 3/8;
+  position: relative;
+  cursor: pointer;
+}
+
+.bio-bg {
+  background-image: url("img/portrait.svg");
+  background-position: top center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: filter 250ms ease;
+}
+
+/*   events   */
+.events {
+  grid-column: 9/12;
+  grid-row: 5/8;
+  position: relative;
+  cursor: pointer;
+}
+
+.events-bg {
+  background-image: url("img/events.svg");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: filter 250ms ease;
+}
+
+/*   cta tickets   */
+.cta {
+  grid-column: 1/3;
+  grid-row: 6/8;
+  display: flex;
+}
+
+.cta .ticket,
+.cta .group {
+  display: flex;
+  flex-direction: column;
+  /* place-content: center; */
+  justify-content: baseline;
+  align-items: center;
+  text-align: center;
+  background-color: #facd2c;
+  font-weight: bolder;
+  line-height: 1.5;
+  transition: all 250ms ease;
+}
+
+.ticket:hover,
+.group:hover {
+  filter: brightness(90%);
+}
+
+.ticket:hover p,
+.group:hover p {
+  color: #000;
+}
+
+.ticket:hover i,
+.group:hover i {
+  color: #fff;
+}
+
+/*   quotes   */
+.quote {
+  grid-column: 10/12;
+  grid-row: 3/5;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.875rem; /*14px*/
+  line-height: 1.5;
+}
+
+/*   social media   */
+.social-media {
+  grid-column: 12/13;
+  grid-row: 3/8;
+}
+
+.jssocials-shares {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.jssocials-share {
+  margin-bottom: 30px;
+}
+
+.jssocials-share i {
+  color: #fff;
+  transition: all 250ms ease;
+}
+
+.jssocials-share-link {
+  background-color: #facd2c;
+  padding: 7px;
+  border-radius: 50px;
+  transition: all 250ms ease;
+}
+
+.jssocials-share:hover .jssocials-share-link {
+  background-color: transparent;
+}
+
+.jssocials-share:hover .jssocials-share-logo::before {
+  color: #000;
+}
+
+/*   footer   */
+footer {
+  grid-column: 1/13;
+  grid-row: 8/9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer p {
+  opacity: 0.4;
+}
+
+/* ================
+  swup transition 
+  ================= */
+
+.transition-fade {
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+}
+
+/* ================
+  media query 
+  ================= */
+
+@media screen and (max-width: 1024px) {
+  body {
+    background-color: blue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-color: red;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  /* body {
+    background-color: green;
+  } */
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

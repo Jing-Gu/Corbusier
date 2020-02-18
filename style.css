@@ -20,7 +20,6 @@ body {
   margin: 0px;
   padding: 0px;
   font-size: 16px;
-  /* min-height: 100vh; */
   font-family: "Raleway", sans-serif;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -299,6 +298,28 @@ a {
   text-align: center;
   font-size: 0.875rem; /*14px*/
   line-height: 1.5;
+  position: relative;
+}
+
+.quote::before,
+.quote::after {
+  color: #facd2c;
+  font-size: 3rem;
+  font-family: "Montserrat", sans-serif;
+  height: 30px;
+  position: absolute;
+}
+
+.quote::before {
+  content: open-quote;
+  left: 0;
+  top: 0;
+}
+
+.quote::after {
+  content: close-quote;
+  right: 0;
+  bottom: 1rem;
 }
 
 /*   social media   */
